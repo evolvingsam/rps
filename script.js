@@ -13,6 +13,10 @@ function getHumanChoice() {
   let choice;
   do {
     choice = prompt("Enter rock, paper, or scissors:").toLowerCase();
+    if (!choices.includes(choice)) {
+      alert("Invalid choice. Please try again.");
+      console.log("Invalid choice. Please try again.");
+    }
   } while (!choices.includes(choice));
   return choice;
 }
@@ -27,16 +31,17 @@ function playRound(humanChoice, computerChoice) {
     console.log(`Computer choice: ${computerChoice}`);
 
   if (humanChoice === computerChoice) {
+    alert("It's a tie!");
     console.log("It's a tie!");
   } else if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
-    console.log(`You win this round! ${humanChoice} beats ${computerChoice}`);
+    alert(`You win this round! ${humanChoice} beats ${computerChoice}`);
     humanScore++;
   } else {
-    console.log(`Computer wins this round! ${computerChoice} beats ${humanChoice}`);
+    alert(`Computer wins this round! ${computerChoice} beats ${humanChoice}`);
     computerScore++;
   }
 
@@ -56,11 +61,11 @@ function playGame() {
     }
     
     if (humanScore > computerScore) {
-        console.log("Congratulations! You win the game!");
+        alert("Congratulations! You win the game!");
     } else if (computerScore > humanScore) {
-        console.log("Computer wins the game! Better luck next time!");
+        alert("Computer wins the game! Better luck next time!");
     } else {
-        console.log("The game is a tie!");
+        alert("The game is a tie!");
     }
   
 }
