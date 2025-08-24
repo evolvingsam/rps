@@ -3,11 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <title>Document</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
+    <div class="game-container">
+        <div class="computer-container">
+            <div class="computer-health-bar-container">
+                Computer
+                <div class="computer-health-bar"></div>
+            </div>
+            <div class="computer-choice-container">
+                <img id="computer-choice-image" src="img/rock-front.png">
+                <div class="computer-shadow"></div>
+            </div>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="result-text">Rock Paper Scissors</div>
+
+        <div class="player-container">
+            <div class="player-choice">
+                <img id="player-choice-image" src="./img/rock-back.png">
+                <div class="player-choice-shadow"></div>
+            </div>
+
+            <div class="player-menu-container">
+                <div class="player-status">
+                    Player:
+                    <div id="player-healthbar-container">
+                        <div id="player-healthbar"></div>
+                    </div>
+                </div>
+
+                <div class="choices-text">Choose your move!</div>
+
+                <div class="choices-container">
+                    <button class="choice-button" id="rock"></button>
+                    <button class="choice-button" id="paper"></button>
+                    <button class="choice-button" id="scissors"></button>
+                    <button id="play-again">Play Again</button>
+                </div>
+            </div>
+            </div>
+        <div class="credit">
+            Created by 
+            <a href="https://github.com/evolvingsam">Samuel Alawode</a>
+        </div>
+    </div>
+    <div class="result"></div>
 </body>
 </html>

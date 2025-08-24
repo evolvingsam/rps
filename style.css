@@ -1,0 +1,260 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: sans-serif;
+    font-family: "Press Start 2P", system-ui;
+}
+
+.game-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    background-color: #1E1B26;
+}
+
+.computer-container, .player-container {
+    display: flex;
+    width: 65vw;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.computer-status, .player-status {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background-color: #373145;
+    font-size: 12px;
+}
+
+.computer-status {
+    flex: 0 1 400px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.player-status {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+
+.computer-choice, .player-choice {
+    flex: 0 1 200px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+#computer-choice-img, #player-choice-img {
+    width: 100%;
+    height: auto;
+}
+
+#computer-choice-img {
+    rotate: -120deg;
+    filter: saturate(0);
+}
+
+.result-text {
+    width: 80vw;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#player-choice-img {
+    rotate: 60deg;
+    filter: saturate(0);
+}
+
+.computer-choice-shadow, .player-choice-shadow {
+    background-color: rgba(0, 0, 0, .25);
+    border-radius: 50%;
+    filter: blur(3px);
+    width: 100%;
+    height: 20px;
+}
+
+#computer-healthbar-container, #player-healthbar-container {
+    background-color: rgba(0, 0, 0, .25);
+    border-radius: 5px;
+}
+
+#computer-healthbar-container {
+    flex: 200px;
+}
+
+#player-healthbar-container {
+    flex: 200px;
+}
+
+#computer-healthbar, #player-healthbar {
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+    background-color: #40FF39;
+}
+
+.player-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    flex: 0 1 400px;
+}
+
+.choices-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.choice-button, #play-again-button{
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #2e283d;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    box-shadow: 0 -5px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(0, 0, 0, .5);
+}
+
+.choice-button {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+#play-again-button {
+    margin-top: 20px;
+    position: relative;
+    display: none;
+    padding: 40px 20px;
+    z-index: 10;
+    width: 200px;
+    font-family: "Press Start 2P";
+    transform-style: preserve-3d;
+}
+
+#play-again-button:hover::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    transform: translate3d(0, 4px, -1px); /* control the offsets */
+    background: rgb(255,50,136);
+    background: linear-gradient(135deg, rgb(255, 0, 106) 12%, rgb(0, 251, 255) 59%, rgb(248, 208, 7) 100%);
+    border-radius: 10px;
+    filter: blur(3px);
+}
+
+#play-again-button:active::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    transform: translate3d(0, 4px, -1px); /* control the offsets */
+    background: rgb(255,50,136);
+    background: linear-gradient(135deg, rgb(255, 117, 174) 15%, rgb(94, 252, 254) 59%, rgb(255, 229, 99) 100%);
+    border-radius: 10px;
+    filter: blur(3px);
+}
+
+#play-again-button:active {
+    box-shadow: 0 1px 2px 4px rgba(0, 0, 0, .25) inset;
+}
+
+#rock {
+    background-image: url(./img/rock-front.png);
+    
+}
+
+#rock:hover {
+    box-shadow: 0 -5px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(255, 50, 136, .5);
+}
+
+#rock:active {
+    box-shadow: 0 1px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(255, 50, 136, .75);
+}
+
+#paper {
+    background-image: url(./img/paper-front.png);
+}
+
+#paper:hover {
+    box-shadow: 0 -5px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(50, 251, 255, 0.5);
+}
+
+#paper:active {
+    box-shadow: 0 1px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(50, 251, 255, 0.75);
+}
+
+#scissors {
+    background-image: url(./img/scissors-front.png);
+}
+
+#scissors:hover {
+    box-shadow: 0 -5px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(255, 220, 50, 0.5);
+}
+
+#scissors:active {
+    box-shadow: 0 1px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(255, 220, 50, 0.75);
+}
+
+.attribution {
+    font-size: 0.5rem;
+}
+
+.attribution a {
+    color: rgb(255,50,136);
+}
+
+.credit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.self-credit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.7rem;
+}
+
+.github-link {
+    color: rgb(255,50,136);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-wrap: nowrap;
+}
+
+.github-link:visited {
+    color: rgb(248, 208, 7) 100%;
+}
+
+.github-link svg {
+    width: 1.5rem;
+}
